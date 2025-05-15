@@ -118,13 +118,14 @@ window.navigateToState = function (stateId) {
 
             // Process Coq result to insert div after the specific line
             let processedCoqResult = state.coqResult;
-            if (shouldShowDiff) {
-                // Replace the specific line with a styled version
-                processedCoqResult = processedCoqResult.replace(
-                    "IHn' : n' + 0 = n'",
-                    "<div class=\"hardcoded-div\"><span class=\"subtraction\">E: n = S n'</span></div>\n<div class=\"addition-container\"><span class=\"addition\">IHn' : n' + 0 = n'</span></div>"
-                );
-            }
+            // Hardcode:
+            // if (shouldShowDiff) {
+            //     // Replace the specific line with a styled version
+            //     processedCoqResult = processedCoqResult.replace(
+            //         "IHn' : n' + 0 = n'",
+            //         "<div class=\"hardcoded-div\"><span class=\"subtraction\">E: n = S n'</span></div>\n<div class=\"addition-container\"><span class=\"addition\">IHn' : n' + 0 = n'</span></div>"
+            //     );
+            // }
 
             html += `
                 <div class="state-item" data-state-id="${state.id}">
@@ -161,6 +162,41 @@ window.navigateToState = function (stateId) {
         stateListElement.innerHTML = html;
     }
 
+    // Function to compute text diff between two states
+    function computeTextDiff(sourceText, targetText) {
+        // Split texts into lines for comparison
+        const sourceLines = sourceText.split('\n');
+        const targetLines = targetText.split('\n');
+
+        let diff = [];
+        let i = 0, j = 0;
+
+        while (i < sourceLines.length || j < targetLines.length) {
+            if (i >= sourceLines.length) {
+                // Add remaining target lines as additions
+                diff.push(`<div class="addition-container"><span class="addition">+ ${targetLines[j]}</span></div>`);
+                j++;
+            } else if (j >= targetLines.length) {
+                // Add remaining source lines as deletions
+                diff.push(`<div class="hardcoded-div"><span class="subtraction">- ${sourceLines[i]}</span></div>`);
+                i++;
+            } else if (sourceLines[i] === targetLines[j]) {
+                // Lines are identical, add as context
+                diff.push(`<div class="context-line">${sourceLines[i]}</div>`);
+                i++;
+                j++;
+            } else {
+                // Lines are different, show both
+                diff.push(`<div class="hardcoded-div"><span class="subtraction">- ${sourceLines[i]}</span></div>`);
+                diff.push(`<div class="addition-container"><span class="addition">+ ${targetLines[j]}</span></div>`);
+                i++;
+                j++;
+            }
+        }
+
+        return diff.join('\n');
+    }
+
     // Function to render linked states
     function renderLinkedStates(currentState, allStates) {
         if (!currentState.linkedStateIds || currentState.linkedStateIds.length === 0) {
@@ -173,16 +209,12 @@ window.navigateToState = function (stateId) {
             if (linkedState) {
                 const hasCoqResult = linkedState.coqResult !== undefined && linkedState.coqResult !== null;
                 const isError = hasCoqResult && linkedState.coqResult.startsWith('Error:');
-                const shouldShowDiff = showDiffCheckbox.checked && hasCoqResult && linkedState.coqResult.includes("IHn' : n' + 0 = n'");
+                const shouldShowDiff = showDiffCheckbox.checked && hasCoqResult && currentState.coqResult;
 
-                // Process Coq result to insert div after the specific line
+                // Process Coq result to show diff if needed
                 let processedCoqResult = linkedState.coqResult;
-                if (shouldShowDiff) {
-                    // Replace the specific line with a styled version
-                    processedCoqResult = processedCoqResult.replace(
-                        "IHn' : n' + 0 = n'",
-                        "<div class=\"addition-container\"><span class=\"addition\">IHn' : n' + 0 = n'</span></div>\n<div class=\"hardcoded-div\"><span class=\"subtraction\">E: n = S n'</span></div>"
-                    );
+                if (shouldShowDiff && currentState.coqResult) {
+                    processedCoqResult = computeTextDiff(currentState.coqResult, linkedState.coqResult);
                 }
 
                 html += `
