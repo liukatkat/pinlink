@@ -4,15 +4,15 @@ PinLink is a VSCode extension designed for pinning and linking states in Rocq (f
 
 ## Features
 
-- **Track States**: Pin proof states at specific points in your Coq code.
-- **Link States**: Create links between related proof states for better organization.
-- **Refresh States**: Recalculate proof states by sending the corresponding code to Coq.
-- **Navigate to States**: Quickly jump to the location of a pinned state in your code.
-- **Visualize Proof States**: View proof states and their relationships in a sidebar.
+### Track and Link States
 
-### Screenshots
+![Link and Diff States](https://github.com/liukatkat/pinlink/blob/main/screenshots/link_diff_state.gif)
 
 > Tip: Check the "Show Diff" button to see the differences compared to the linked states.
+
+### Pin and Refresh States
+
+![Pin and Refresh States](https://github.com/liukatkat/pinlink/blob/main/screenshots/pin_state.gif)
 
 > Tip: Use the "Refresh" button to update all tracked states with the latest proof results.
 
