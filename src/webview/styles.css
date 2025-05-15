@@ -1,0 +1,315 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 20px;
+    color: var(--vscode-editor-foreground);
+    background-color: var(--vscode-editor-background);
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+button {
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+    padding: 8px 12px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+button:hover {
+    background-color: var(--vscode-button-hoverBackground);
+}
+
+.state-list {
+    margin-top: 20px;
+}
+
+.state-item {
+    border: 1px solid var(--vscode-panel-border);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--vscode-editor-background);
+}
+
+.state-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.state-title {
+    cursor: pointer;
+    color: var(--vscode-textLink-foreground);
+}
+
+.state-title:hover {
+    text-decoration: underline;
+}
+
+.state-content {
+    font-family: monospace;
+    white-space: pre-wrap;
+    background-color: var(--vscode-textCodeBlock-background);
+    padding: 8px;
+    border-radius: 2px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.state-content:hover {
+    background-color: var(--vscode-textCodeBlock-background);
+    border: 1px solid var(--vscode-focusBorder);
+}
+
+.state-meta {
+    font-size: 0.8em;
+    color: var(--vscode-descriptionForeground);
+    margin-top: 5px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 20px;
+    color: var(--vscode-descriptionForeground);
+}
+
+.coq-result {
+    margin-top: 10px;
+    border-top: 1px dashed var(--vscode-panel-border);
+    padding-top: 10px;
+}
+
+.coq-result-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--vscode-textLink-foreground);
+}
+
+.coq-result-content {
+    font-family: monospace;
+    white-space: pre-wrap;
+    background-color: var(--vscode-textCodeBlock-background);
+    padding: 8px;
+    border-radius: 2px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.error {
+    color: var(--vscode-errorForeground);
+}
+
+.linked-states {
+    margin-top: 10px;
+    border-top: 1px dashed var(--vscode-panel-border);
+    padding-top: 10px;
+}
+
+.linked-states-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--vscode-textLink-foreground);
+}
+
+.linked-state-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: var(--vscode-textCodeBlock-background);
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+.linked-state-text {
+    flex-grow: 1;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.linked-state-text:hover {
+    background-color: var(--vscode-list-hoverBackground);
+}
+
+.linked-state-theorem {
+    font-weight: bold;
+    color: var(--vscode-textLink-foreground);
+    margin-bottom: 2px;
+}
+
+.linked-state-code {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.linked-state-coq-result {
+    margin-top: 5px;
+    border-top: 1px dashed var(--vscode-panel-border);
+    padding-top: 5px;
+    font-size: 0.9em;
+}
+
+.linked-state-coq-header {
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: var(--vscode-textLink-foreground);
+}
+
+.linked-state-coq-content {
+    font-family: monospace;
+    white-space: pre-wrap;
+    background-color: var(--vscode-textCodeBlock-background);
+    padding: 4px;
+    border-radius: 2px;
+    max-height: 100px;
+    overflow-y: auto;
+    font-size: 0.9em;
+}
+
+.linked-state-coq-result.error .linked-state-coq-header {
+    color: var(--vscode-errorForeground);
+}
+
+.linked-state-coq-result.error .linked-state-coq-content {
+    color: var(--vscode-errorForeground);
+}
+
+.link-button {
+    background-color: var(--vscode-button-secondaryBackground);
+    color: var(--vscode-button-secondaryForeground);
+    border: none;
+    padding: 4px 8px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 0.8em;
+}
+
+.link-button:hover {
+    background-color: var(--vscode-button-secondaryHoverBackground);
+}
+
+.link-button.active {
+    background-color: var(--vscode-button-secondaryHoverBackground);
+}
+
+.state-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.state-actions button {
+    font-size: 0.8em;
+    padding: 4px 8px;
+    margin-left: 5px;
+}
+
+.settings {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-panel-border);
+    border-radius: 4px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9em;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: relative;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background-color: var(--vscode-checkbox-background);
+    border: 1px solid var(--vscode-checkbox-border);
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.checkbox-container:hover input~.checkmark {
+    background-color: var(--vscode-checkbox-background);
+    border-color: var(--vscode-focusBorder);
+}
+
+.checkbox-container input:checked~.checkmark {
+    background-color: var(--vscode-checkbox-background);
+    border-color: var(--vscode-focusBorder);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--vscode-checkbox-foreground);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.hardcoded-div {
+    margin-top: 2px;
+    padding: 2px;
+    background-color: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-errorForeground);
+    border-radius: 2px;
+    color: var(--vscode-errorForeground);
+    font-weight: bold;
+    display: block;
+    width: 100%;
+}
+
+.subtraction {
+    color: var(--vscode-errorForeground);
+    font-weight: bold;
+}
+
+.addition {
+    color: var(--vscode-terminal-ansiGreen);
+    font-weight: bold;
+}
+
+.addition-container {
+    display: block;
+    width: 100%;
+    padding: 2px;
+    background-color: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-terminal-ansiGreen);
+    border-radius: 2px;
+    margin: 1px 0;
+}

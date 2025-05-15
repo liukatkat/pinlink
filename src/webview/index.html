@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinLink</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>PinLink Sidebar</h1>
+    <p>Track states in your Coq proofs</p>
+    <div class="settings">
+        <label class="checkbox-container">
+            <input type="checkbox" id="showDivCheckbox">
+            <span class="checkmark"></span>
+            Show diff after save state
+        </label>
+    </div>
+    <div class="actions">
+        <button id="refreshButton">Refresh</button>
+    </div>
+    <div id="stateList" class="state-list">
+        <div class="empty-state">No states tracked yet. Right-click in your editor and select "Track State" to begin.
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
