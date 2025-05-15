@@ -88,7 +88,7 @@ window.navigateToState = function (stateId) {
     window.trackedStates = [];
 
     // Get the checkbox element
-    const showDivCheckbox = document.getElementById('showDivCheckbox');
+    const showDiffCheckbox = document.getElementById('showDiffCheckbox');
 
     // Get the refresh button element
     const refreshButton = document.getElementById('refreshButton');
@@ -114,11 +114,11 @@ window.navigateToState = function (stateId) {
         states.forEach((state, index) => {
             const hasCoqResult = state.coqResult !== undefined && state.coqResult !== null;
             const isError = hasCoqResult && state.coqResult.startsWith('Error:');
-            const shouldShowDiv = showDivCheckbox.checked && hasCoqResult && state.coqResult.includes("IHn' : n' + 0 = n'");
+            const shouldShowDiff = showDiffCheckbox.checked && hasCoqResult && state.coqResult.includes("IHn' : n' + 0 = n'");
 
             // Process Coq result to insert div after the specific line
             let processedCoqResult = state.coqResult;
-            if (shouldShowDiv) {
+            if (shouldShowDiff) {
                 // Replace the specific line with a styled version
                 processedCoqResult = processedCoqResult.replace(
                     "IHn' : n' + 0 = n'",
@@ -173,11 +173,11 @@ window.navigateToState = function (stateId) {
             if (linkedState) {
                 const hasCoqResult = linkedState.coqResult !== undefined && linkedState.coqResult !== null;
                 const isError = hasCoqResult && linkedState.coqResult.startsWith('Error:');
-                const shouldShowDiv = showDivCheckbox.checked && hasCoqResult && linkedState.coqResult.includes("IHn' : n' + 0 = n'");
+                const shouldShowDiff = showDiffCheckbox.checked && hasCoqResult && linkedState.coqResult.includes("IHn' : n' + 0 = n'");
 
                 // Process Coq result to insert div after the specific line
                 let processedCoqResult = linkedState.coqResult;
-                if (shouldShowDiv) {
+                if (shouldShowDiff) {
                     // Replace the specific line with a styled version
                     processedCoqResult = processedCoqResult.replace(
                         "IHn' : n' + 0 = n'",
@@ -217,7 +217,7 @@ window.navigateToState = function (stateId) {
     });
 
     // Add event listener for the checkbox
-    showDivCheckbox.addEventListener('change', () => {
+    showDiffCheckbox.addEventListener('change', () => {
         updateStateList(window.trackedStates);
     });
 
