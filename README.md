@@ -20,9 +20,8 @@ The files used in the screenshots can be found in the `examples` directory.
 
 ## Requirements
 
-- **VSCode**: Version 1.70.0 or higher.
+- **VSCode**: Version 1.99.0 or higher.
 - **Coq**: Ensure `coqtop` is installed and available in your system's PATH.
-- **Node.js**: Required for building and running the extension.
 
 To install the dependencies, run `npm install`.
 
