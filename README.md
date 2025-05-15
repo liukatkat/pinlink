@@ -16,6 +16,8 @@ PinLink is a VSCode extension designed for pinning and linking states in Rocq (f
 
 > Tip: Use the "Refresh" button to update all tracked states with the latest proof results.
 
+The files used in the screenshots can be found in the `examples` directory.
+
 ## Requirements
 
 - **VSCode**: Version 1.70.0 or higher.
@@ -35,7 +37,7 @@ To install the dependencies, run `npm install`.
 ## Release Notes
 
 This extension is unreleased. To try this extension, clone the repo locally and start debugging
-using VSCode. You may test the extension on the files found in the `./examples` directory.
+using VSCode. You may test the extension on the files found in the `examples` directory.
 
 > Tip: It is recommended to start a new debugging instance every time you test on a different file.
 
