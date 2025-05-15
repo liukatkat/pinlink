@@ -1,71 +1,42 @@
-# pinlink README
+# PinLink README
 
-This is the README for your extension "pinlink". After writing up a brief description, we recommend including the following sections.
+PinLink is a VSCode extension designed for pinning and linking states in Rocq (formerly known as Coq). It helps users track proof states, link related states, and navigate between them efficiently.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Track States**: Pin proof states at specific points in your Coq code.
+- **Link States**: Create links between related proof states for better organization.
+- **Refresh States**: Recalculate proof states by sending the corresponding code to Coq.
+- **Navigate to States**: Quickly jump to the location of a pinned state in your code.
+- **Visualize Proof States**: View proof states and their relationships in a sidebar.
 
-For example if there is an image subfolder under your extension project workspace:
+### Screenshots
 
-\!\[feature X\]\(images/feature-x.png\)
+> Tip: Check the "Show Diff" button to see the differences compared to the linked states.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+> Tip: Use the "Refresh" button to update all tracked states with the latest proof results.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- **VSCode**: Version 1.70.0 or higher.
+- **Coq**: Ensure `coqtop` is installed and available in your system's PATH.
+- **Node.js**: Required for building and running the extension.
 
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+To install the dependencies, run `npm install`.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Doesn't retain pin/ linked states after window is closed
+- Doesn't work between different files
+- Doesn't handle the case where `coqtop` errors
+- State diff is basic text diff
+- Navigation to states is buggy
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+This extension is unreleased. To try this extension, clone the repo locally and start debugging
+using VSCode. You may test the extension on the files found in the `./examples` directory.
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+> Tip: It is recommended to start a new debugging instance every time you test on a different file.
 
 ---
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
